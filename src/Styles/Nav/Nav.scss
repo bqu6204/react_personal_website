@@ -1,0 +1,179 @@
+$avatarUrl: "../../Images/EsongAvatar.jpeg";
+
+$nav--background--light: hsl(0, 0%, 95%);
+$nav--background--dark: hsl(0, 0%, 20%);
+
+$nav--responsive--height: 8vh;
+$nav--responsive--linkContainer--height: 100vh - $nav--responsive--height;
+
+$nav--toggleLightDarkMode--width: 50px;
+$nav--toggleLightDarkMode--height: 25px;
+$nav--toggleLightDarkMode--borderRadius: 25px;
+
+$nav--indicatorLightDarkMode--width: 25px;
+$nav--indicatorLightDarkMode--movementRange: $nav--toggleLightDarkMode--width - $nav--indicatorLightDarkMode--width;
+
+
+nav {
+    background-color: $nav--background--light;
+    position: sticky;
+    text-align: center;
+    align-items: center;
+    transition: all 0.5s ease-out;
+    z-index: 1;
+
+    &.dark {
+        background-color: $nav--background--dark;
+        color: hsl(0, 0%, 95%)
+    }
+
+    .avatar {
+        margin: 40px auto;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        background-image: url($avatarUrl);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #name {
+        margin: 20px;
+
+    }
+
+    ul {
+        padding-inline-start: 0px;
+        list-style-type: none;
+
+
+        li {
+            a {
+                display: inline-block;
+                align-items: center;
+                text-decoration: none;
+                width: 80%;
+                height: 40px;
+                line-height: 40px;
+                color: #222;
+
+                &:hover {
+                    color: hsl(203, 100%, 50%);
+                    // filter: invert(1);
+                    // mix-blend-mode: difference;
+                    text-decoration: underline;
+                }
+
+                &.dark {
+                    color: hsl(0, 0%, 95%);
+
+                    &:hover {
+                        color: hsl(58, 100%, 50%)
+                    }
+                }
+
+            }
+        }
+    }
+
+    #toggleLightDarkMode {
+        display: inline-block;
+        margin: 20px auto;
+        position: relative;
+        width: $nav--toggleLightDarkMode--width;
+        height: $nav--toggleLightDarkMode--height;
+        border-radius: $nav--toggleLightDarkMode--borderRadius;
+        background-color: #fff;
+        transition: 0.5s;
+        cursor: pointer;
+        box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1),
+            inset 0 2px 8px rgba(0, 0, 0, 0.1),
+            inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+
+        #indicatorLightDarkMode {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $nav--indicatorLightDarkMode--width;
+            height: $nav--toggleLightDarkMode--height;
+            background-color: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+            border-radius: $nav--toggleLightDarkMode--borderRadius;
+            transform: scale(0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
+                inset 0 4px 4px rgba(255, 255, 255, 1),
+                inset 0 -4px 4px rgba(255, 255, 255, 1);
+            transition: 0.5s;
+        }
+
+        &.dark {
+            background: rgb(50, 50, 50);
+            box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+                inset 0 8px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+
+            #indicatorLightDarkMode {
+                left: $nav--indicatorLightDarkMode--movementRange;
+                background-color: linear-gradient(to bottom, #444, $nav--background--dark);
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+                    inset 0 4px 4px rgba(255, 255, 255, 0.2),
+                    inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    nav {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
+            0 4px 4px rgba(255, 255, 255, 1),
+            inset 0 -4px 4px rgba(255, 255, 255, 1);
+
+        &.dark {
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+                0 4px 4px rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    nav {
+        width: 100vw;
+        min-height: $nav--responsive--height;
+        display: flex;
+        justify-content: space-between;
+        vertical-align: middle;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.15);
+
+
+        #navLinkContainer {
+            position: absolute;
+            width: 100vw;
+            height: $nav--responsive--linkContainer--height;
+            top: $nav--responsive--height;
+            transition: 0.5s all ease;
+            left: -100vw;
+
+            background-color: hsl(0, 0%, 98%);
+
+            &.active {
+                transform: translateX(100vw);
+            }
+
+            &.dark {
+                background-color: hsl(0, 0%, 30%);
+
+            }
+        }
+
+        #navButton {
+            cursor: pointer;
+            margin: 0px 25px;
+        }
+
+        #toggleLightDarkMode {
+            margin: 0px 25px;
+        }
+    }
+
+}

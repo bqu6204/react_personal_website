@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState , useEffect } from 'react';
+import './Styles/App/App.css';
+import Nav from './Components/Nav.js';
+import Main from './Components/Main.js'
 
-function App() {
+export default function App() {
+  const [darkScene, setDarkScene] = useState(false);
+  const [mainSection1_rotateDegree ,setMainSection1_rotateDegree] = useState(180);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+      function watchWindowWidth() {
+          setWindowWidth(window.innerWidth)
+      }
+      console.log(windowWidth);
+      window.addEventListener('resize', watchWindowWidth);
+      return function () {
+          window.removeEventListener('resize', watchWindowWidth);
+      }
+  }, [windowWidth])
+
+  function toggleLightDarkMode(){
+    setDarkScene(prevDarkScene => !prevDarkScene);
+    setMainSection1_rotateDegree(prevState => prevState + 180);
+    document.getElementById('testdiv').style.transform= `rotate(${mainSection1_rotateDegree}deg)`;
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav darkScene={darkScene} toggleLightDarkMode={toggleLightDarkMode} windowWidth={windowWidth}/>
+      <Main darkScene={darkScene} windowWidth={windowWidth}/>
+    </>
+
   );
 }
-
-export default App;

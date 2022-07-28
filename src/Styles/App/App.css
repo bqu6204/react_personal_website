@@ -1,0 +1,23 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Anton',  'Inter', sans-serif;
+}
+
+* h1 {
+  font-family: 'Martel', serif;
+}
+
+@media screen and (min-width: 1024px) {
+  #root {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 4fr;
+        grid-template-columns: 1fr 4fr;
+    -ms-grid-rows: 100vh;
+        grid-template-rows: 100vh;
+  }
+}
+/*# sourceMappingURL=App.css.map */

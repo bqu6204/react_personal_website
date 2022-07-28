@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Anton',  'Inter', sans-serif;
+    h1 {
+        font-family: 'Martel', serif;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #root {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: min(100vh);
+    }
+}
