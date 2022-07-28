@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react_personal_website/static/css/main.ff962d66.css",
+    "main.js": "/react_personal_website/static/js/main.509ae716.js",
+    "static/js/787.9d17a612.chunk.js": "/react_personal_website/static/js/787.9d17a612.chunk.js",
+    "static/media/EsongAvatar.jpeg": "/react_personal_website/static/media/EsongAvatar.f542093b6d36cf2833c9.jpeg",
+    "static/media/svgtest.svg": "/react_personal_website/static/media/svgtest.1c74e534108e6b90d41de9f4f090d98e.svg",
+    "index.html": "/react_personal_website/index.html",
+    "main.ff962d66.css.map": "/react_personal_website/static/css/main.ff962d66.css.map",
+    "main.509ae716.js.map": "/react_personal_website/static/js/main.509ae716.js.map",
+    "787.9d17a612.chunk.js.map": "/react_personal_website/static/js/787.9d17a612.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff962d66.css",
+    "static/js/main.509ae716.js"
+  ]
+}
