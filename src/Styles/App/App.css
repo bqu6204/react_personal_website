@@ -16,8 +16,6 @@
     display: grid;
     -ms-grid-columns: 1fr 4fr;
         grid-template-columns: 1fr 4fr;
-    -ms-grid-rows: 100vh;
-        grid-template-rows: 100vh;
   }
 }
 /*# sourceMappingURL=App.css.map */

@@ -1,10 +1,11 @@
+@import "../Variables/variables.scss";
+
 $avatarUrl: "../../Images/EsongAvatar.jpeg";
 
-$nav--background--light: hsl(0, 0%, 95%);
-$nav--background--dark: hsl(0, 0%, 20%);
+$nav--background--light: $main_color_lightMode;
+$nav--background--dark: $main_color_darkMode;
 
-$nav--responsive--height: 8vh;
-$nav--responsive--linkContainer--height: 100vh - $nav--responsive--height;
+
 
 $nav--toggleLightDarkMode--width: 50px;
 $nav--toggleLightDarkMode--height: 25px;
@@ -16,7 +17,9 @@ $nav--indicatorLightDarkMode--movementRange: $nav--toggleLightDarkMode--width - 
 
 nav {
     background-color: $nav--background--light;
+    height:100vh;
     position: sticky;
+    top:0;
     text-align: center;
     align-items: center;
     transition: all 0.5s ease-out;
@@ -24,7 +27,7 @@ nav {
 
     &.dark {
         background-color: $nav--background--dark;
-        color: hsl(0, 0%, 95%)
+        color: $nav--background--light;
     }
 
     .avatar {
@@ -59,18 +62,18 @@ nav {
                 color: #222;
 
                 &:hover {
-                    color: hsl(203, 100%, 50%);
+                    color: $button_color_blue;
                     // filter: invert(1);
                     // mix-blend-mode: difference;
                     text-decoration: underline;
                 }
 
                 &.dark {
-                    color: hsl(0, 0%, 95%);
+                    color: $nav--background--light;
 
-                    &:hover {
-                        color: hsl(58, 100%, 50%)
-                    }
+                    // &:hover {
+                    //     color: hsl(0, 100%, 35%)
+                    // }
                 }
 
             }
@@ -139,7 +142,9 @@ nav {
 @media screen and (max-width: 1024px) {
     nav {
         width: 100vw;
-        min-height: $nav--responsive--height;
+        height: $nav--responsive--height;
+        position: sticky;
+        top: 0;
         display: flex;
         justify-content: space-between;
         vertical-align: middle;
@@ -154,14 +159,14 @@ nav {
             transition: 0.5s all ease;
             left: -100vw;
 
-            background-color: hsl(0, 0%, 98%);
+            background-color: $nav--background--light;
 
             &.active {
                 transform: translateX(100vw);
             }
 
             &.dark {
-                background-color: hsl(0, 0%, 30%);
+                background-color: $nav--background--dark;
 
             }
         }

@@ -39,9 +39,6 @@
 }
 
 .mainSection1Wrapper #mainSection1TextImageContainer #mainSection1Text {
-  -webkit-filter: invert(1);
-          filter: invert(1);
-  mix-blend-mode: difference;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,11 +50,14 @@
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  mix-blend-mode: difference;
 }
 
 .mainSection1Wrapper #mainSection1TextImageContainer #mainSection1Text h1 {
   width: 80%;
-  color: black;
+  color: dark;
   font-size: 5vw;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -74,14 +74,14 @@
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
-  color: #00b3ff;
-  border: 5px #00b3ff solid;
+  color: #00aaff;
+  border: 5px #00aaff solid;
   border-radius: 25px;
   padding: 10px 30px;
 }
 
 .mainSection1Wrapper #mainSection1TextImageContainer #mainSection1Text a:hover {
-  background-color: #00b3ff;
+  background-color: #00aaff;
   color: white;
 }
 
