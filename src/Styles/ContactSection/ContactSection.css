@@ -1,5 +1,21 @@
-.map-container {
-  width: 100%;
+#contactSectionWrapper {
+  position: relative;
   height: 100vh;
+}
+
+#contactSectionWrapper #contactInfoContainer {
+  position: absolute;
+  top: 10vh;
+  right: 5vw;
+  z-index: 1;
+  background-color: azure;
+  width: 700px;
+  height: 500px;
+}
+
+#contactSectionWrapper .map-container {
+  width: 98%;
+  height: 98vh;
+  margin: auto;
 }
 /*# sourceMappingURL=ContactSection.css.map */

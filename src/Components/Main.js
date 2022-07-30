@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Main_Section1 from './MainSection1';
-import Contact_Section from './Contact_Section'
+import ContactSection from './ContactSection';
 
 
 export default function Main(props) {
@@ -9,7 +9,7 @@ export default function Main(props) {
     return (
         <div id="main">
             < Main_Section1 darkScene={props.darkScene} windowWidth={props.windowWidth}/>
-            < Contact_Section darkScene={props.darkScene}/>
+            < ContactSection darkScene={props.darkScene}/>
         </div>
     )
 }

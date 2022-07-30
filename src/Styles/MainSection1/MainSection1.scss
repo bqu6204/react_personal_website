@@ -20,7 +20,6 @@ $mainSection1Background--dark: linear-gradient(140deg, $main_color_lightMode 50%
     align-items: center;
 
     .mainSection1Background {
-        z-index: -20;
         position: absolute;
         background: $mainSection1Background--light;
         //top: -5%;
@@ -126,7 +125,4 @@ $mainSection1Background--dark: linear-gradient(140deg, $main_color_lightMode 50%
 
         }
     }
-
-
-
 }

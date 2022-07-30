@@ -6,11 +6,11 @@ export default function MainSection1(props) {
 
     return (
         <div className="mainSection1Wrapper">
-            <div className={`${props.darkScene && 'dark'}  mainSection1Background`} id="testdiv"></div>
+            <div className={`${props.darkScene === true ? 'dark' : ''}  mainSection1Background`} id="testdiv"></div>
             <div id="mainSection1TextImageContainer">
                 <div id="mainSection1Text">
                     <h1 >Hi, welcome to my personal website!!</h1>
-                    <a href="#" className={props.darkScene && 'dark'}>CONTACT ME</a>
+                    <a href="#" className={props.darkScene === true ? 'dark' : ''}>CONTACT ME</a>
                 </div>
 
                 {props.windowWidth > 1024 &&

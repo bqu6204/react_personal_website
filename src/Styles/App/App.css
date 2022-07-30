@@ -10,6 +10,10 @@
   font-family: 'Martel', serif;
 }
 
+#root {
+  z-index: -1;
+}
+
 @media screen and (min-width: 1024px) {
   #root {
     display: -ms-grid;
