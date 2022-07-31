@@ -41,6 +41,13 @@
             inset 0 4px 4px rgba(255, 255, 255, 0.2),
             inset 0 -4px 4px rgba(255, 255, 255, 0.2);
 
+        &.dark{
+            background:$main_color_darkMode;
+            box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+                0 8px 8px rgba(0, 0, 0, 0.1),
+                0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .contactInfo {
             @include button;
             padding: 5px 10px;

@@ -41,11 +41,17 @@
           box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
 }
 
+#contactSectionWrapper #contactInfoContainer.dark {
+  background: #333333;
+  -webkit-box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
 #contactSectionWrapper #contactInfoContainer .contactInfo {
   display: block;
   color: #333333;
   background-color: #f2f2f2;
-  border: 2px solid #333333;
+  border: 2px dashed #333333;
   border-radius: 10px;
   cursor: pointer;
   -webkit-transition: all 0.1s ease-out;
@@ -60,6 +66,8 @@
 
 #contactSectionWrapper #contactInfoContainer .contactInfo:hover {
   background: #f2f2f2;
+  background-color: white;
+  text-shadow: 0.05em 0.05em 0.05em #b3b3b3;
 }
 
 #contactSectionWrapper #contactInfoContainer .contactInfo::before {

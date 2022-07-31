@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 import mapLightMode from '../MapStyle/mapLightMode';
@@ -28,11 +28,11 @@ export default function ContactSection(props) {
 
     return (
         <div id="contactSectionWrapper" className={props.darkScene === true ? 'dark' : ''}>
-            <div id="contactInfoContainer">
+            <div id="contactInfoContainer" className={props.darkScene === true ? 'dark' : ''}>
                 <div id="contactInfoPhone" className="contactInfo" onClick={copy}>
                     0963251211</div>
                 <div id="contactInfoEmail" className="contactInfo" onClick={copy} >bqu6204@gmail.com</div>
-                <a id="contactInfoGithub" className="contactInfo" href="https://github.com/bqu6204/react_personal_website" target="_blank" >
+                <a id="contactInfoGithub" className="contactInfo" href="https://github.com/bqu6204/react_personal_website" target="_blank" rel="noopener noreferrer" >
                     https://github.com/bqu6204/react_personal_website
                 </a>
                 <form>

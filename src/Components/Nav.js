@@ -8,7 +8,7 @@ export default function Nav(props) {
     const [navActive, setNavActive] = useState(false);
 
     function toggleNav() {
-        setNavActive(prevNavActive => !prevNavActive)
+        setNavActive(prevNavActive => !prevNavActive);
     }
 
     return (
@@ -16,14 +16,14 @@ export default function Nav(props) {
 
             {props.windowWidth < 1024 && <GiHamburgerMenu id="navButton" size="20" color={props.darkScene && "white"} onClick={toggleNav} />}
 
-            <div id="navLinkContainer" className={`${navActive ? 'active' : ''} ${props.darkScene === true ? 'dark' : ''}`}>
+            <div id="navLinkContainer" onClick={toggleNav} className={`${navActive ? 'active' : ''} ${props.darkScene === true ? 'dark' : ''}`}>
                 <div className="avatar"></div>
                 <h1 id="name">E-Song Yeh</h1>
                 <ul>
                     <li><AnchorLink  className={props.darkScene === true ? 'dark' : ''} href="#mainSection1Wrapper">HOME</AnchorLink></li>
-                    <li><a className={props.darkScene === true ? 'dark' : ''} href="#">SKILL</a></li>
-                    <li><a className={props.darkScene === true ? 'dark' : ''} href="#">EXPERIENCE</a></li>
-                    <li><AnchorLink  className={props.darkScene === true ? 'dark' : ''} href="#contactSectionWrapper">CONTACT</AnchorLink></li>
+                    <li><AnchorLink className={props.darkScene === true ? 'dark' : ''} href="#mainSection1Wrapper">SKILL</AnchorLink></li>
+                    <li><AnchorLink className={props.darkScene === true ? 'dark' : ''} href="#mainSection1Wrapper">EXPERIENCE</AnchorLink></li>
+                    <li><AnchorLink  className={props.darkScene === true ? 'dark' : ''} href="#contactSectionWrapper"> CONTACT</AnchorLink></li>
                 </ul>
             </div>
 
