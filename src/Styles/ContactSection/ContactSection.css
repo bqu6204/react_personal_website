@@ -1,16 +1,127 @@
 #contactSectionWrapper {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #f2f2f2;
   height: 100vh;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+#contactSectionWrapper.dark {
+  background: #333333;
+  -webkit-box-shadow: inset 0 8px 40px rgba(38, 38, 38, 0.2);
+          box-shadow: inset 0 8px 40px rgba(38, 38, 38, 0.2);
 }
 
 #contactSectionWrapper #contactInfoContainer {
   position: absolute;
-  top: 10vh;
+  top: 5vh;
   right: 5vw;
   z-index: 1;
-  background-color: azure;
-  width: 700px;
-  height: 500px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
+  width: 800px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "github github" "email phone" "form form";
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  grid-row-gap: 10px;
+  grid-column-gap: 3px;
+  -webkit-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+}
+
+#contactSectionWrapper #contactInfoContainer .contactInfo {
+  display: block;
+  color: #333333;
+  background-color: #f2f2f2;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  padding: 5px 10px;
+  font-size: x-large;
+  font-weight: 700;
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+
+#contactSectionWrapper #contactInfoContainer .contactInfo:hover {
+  background: #f2f2f2;
+}
+
+#contactSectionWrapper #contactInfoContainer .contactInfo::before {
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
+#contactSectionWrapper #contactInfoContainer .contactInfo::after {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoGithub {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: github;
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoGithub::before {
+  content: url(../../Images/contactSection/github.svg);
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoGithub::after {
+  content: url(../../Images/contactSection/door.svg);
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoEmail {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: email;
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoEmail::before {
+  content: url(../../Images/contactSection/email.svg);
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoEmail::after {
+  content: url(../../Images/contactSection/duplicate.svg);
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoPhone {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: phone;
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoPhone::before {
+  content: url(../../Images/contactSection/phone.svg);
+}
+
+#contactSectionWrapper #contactInfoContainer #contactInfoPhone::after {
+  content: url(../../Images/contactSection/duplicate.svg);
+}
+
+#contactSectionWrapper #contactInfoContainer form {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: form;
 }
 
 #contactSectionWrapper .map-container {

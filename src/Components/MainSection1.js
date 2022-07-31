@@ -5,7 +5,7 @@ import { ReactComponent as SvgTest } from '../Images/svgtest.svg';
 export default function MainSection1(props) {
 
     return (
-        <div className="mainSection1Wrapper">
+        <div id="mainSection1Wrapper" className="mainSection1Wrapper">
             <div className={`${props.darkScene === true ? 'dark' : ''}  mainSection1Background`} id="testdiv"></div>
             <div id="mainSection1TextImageContainer">
                 <div id="mainSection1Text">

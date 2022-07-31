@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import '../Styles/Nav/Nav.css';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+
+import '../Styles/Nav/Nav.css';
 
 export default function Nav(props) {
     const [navActive, setNavActive] = useState(false);
@@ -18,10 +20,10 @@ export default function Nav(props) {
                 <div className="avatar"></div>
                 <h1 id="name">E-Song Yeh</h1>
                 <ul>
-                    <li><a className={props.darkScene === true ? 'dark' : ''} href="#">HOME</a></li>
+                    <li><AnchorLink  className={props.darkScene === true ? 'dark' : ''} href="#mainSection1Wrapper">HOME</AnchorLink></li>
                     <li><a className={props.darkScene === true ? 'dark' : ''} href="#">SKILL</a></li>
                     <li><a className={props.darkScene === true ? 'dark' : ''} href="#">EXPERIENCE</a></li>
-                    <li><a className={props.darkScene === true ? 'dark' : ''} href="#">CONTACT</a></li>
+                    <li><AnchorLink  className={props.darkScene === true ? 'dark' : ''} href="#contactSectionWrapper">CONTACT</AnchorLink></li>
                 </ul>
             </div>
 

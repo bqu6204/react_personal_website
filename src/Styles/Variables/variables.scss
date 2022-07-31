@@ -1,10 +1,30 @@
 $nav--responsive--height: 8vh;
 $nav--responsive--linkContainer--height: 100vh - $nav--responsive--height;
 
-$main_color_lightMode:hsl(0, 0%, 95%);
-$main_color_darkMode:hsl(0, 0%, 20%);
+$main_color_lightMode: hsl(0, 0%, 95%);
+$main_color_darkMode: hsl(0, 0%, 20%);
 
 $main_section_height: 100vh;
 $main_section_responsive_height: 92vh;
 
 $button_color_blue: hsl(200, 100%, 50%);
+$button_transition_time: 0.1s;
+
+$main_transition_time: 0.5s;
+
+@mixin button () {
+    display:block;
+    color: $main_color_darkMode;
+    background-color: hsl(0, 0%, 95%);
+    border: 2px solid $main_color_darkMode;
+    //text-align: center;
+    border-radius:10px;
+    cursor: pointer;
+    transition: all $button_transition_time ease-out;
+
+    &:hover{
+        background: $main_color_lightMode;
+    }
+
+
+}
