@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import axios from 'axios';
 
 import mapLightMode from '../MapStyle/mapLightMode';
 import mapDarkMode from '../MapStyle/mapDarkMode';
@@ -7,6 +8,12 @@ import mapDarkMode from '../MapStyle/mapDarkMode';
 import '../Styles/ContactSection/ContactSection.css';
 
 export default function ContactSection(props) {
+    const [data, setData] = useState({
+        name: '',
+        email: '',
+        text: '',
+    })
+
     /* Clipboard Settings */
     function copy(event) {
         let targetText = event.target.innerText;
@@ -26,6 +33,36 @@ export default function ContactSection(props) {
     );
     if (!isLoaded) return <div>Loading...</div>
 
+    /* Handle Form */
+    function handleInputChange(event) {
+        setData(prevData => {
+            return {
+                ...prevData,
+                [event.target.name]: event.target.value
+            }
+        });
+    }
+
+    function isValidEmail(email) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        if ( !isValidEmail(data.email) ) return alert('Email NOT valid!');
+
+        if (data.name && data.email && data.text){
+            axios.post('http://localhost/rest/', data)
+                .then((response) => {
+                    console.log(response);
+                    alert(response.data.msg)
+                });
+        } else {
+            alert('Form uncompleted!');
+        }
+    }
+
     return (
         <div id="contactSectionWrapper" className={props.darkScene === true ? 'dark' : ''}>
             <div id="contactInfoContainer" className={props.darkScene === true ? 'dark' : ''}>
@@ -36,11 +73,10 @@ export default function ContactSection(props) {
                     https://github.com/bqu6204/react_personal_website
                 </a>
                 <form>
-                    <input name="name" type="text" placeholder="Name"></input>
-                    <input name="email" type="email" placeholder="Email"></input>
-                    <textarea name="text" placeholder="Text..."></textarea>
-                    <button>submit</button>
-
+                    <input onChange={handleInputChange} name="name" type="text" placeholder="Name"></input>
+                    <input onChange={handleInputChange} name="email" type="email" placeholder="Email"></input>
+                    <textarea onChange={handleInputChange} name="text" placeholder="Text..."></textarea>
+                    <button onClick={handleSubmit}>submit</button>
                 </form>
             </div>
             <GoogleMap
