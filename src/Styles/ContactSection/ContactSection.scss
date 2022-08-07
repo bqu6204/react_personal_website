@@ -7,21 +7,20 @@
     align-items: center;
     background: $main_color_lightMode;
     height: $main_section_height;
-
     transition: background-color $main_transition_time ease;
+    overflow: hidden;
 
     &.dark {
         background: $main_color_darkMode;
         box-shadow: inset 0 8px 40px hsla(0, 0%, 15%, 0.2);
     }
 
-
     #contactInfoContainer {
         position: absolute;
         top: 5vh;
         right: 5vw;
         z-index: 1;
-        background-color: $main_color_lightMode;
+        background-color: hsla(0, 0%, 100%, 0.8);
         border-radius: 10px;
         padding: 10px;
 
@@ -35,14 +34,15 @@
         grid-template-columns: 50% 50%;
         grid-row-gap: 10px;
         grid-column-gap: 3px;
+        grid-auto-rows: minmax(min-content, max-content);
 
 
         box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
             inset 0 4px 4px rgba(255, 255, 255, 0.2),
             inset 0 -4px 4px rgba(255, 255, 255, 0.2);
 
-        &.dark{
-            background:$main_color_darkMode;
+        &.dark {
+            background: $main_contact_background;
             box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
                 0 8px 8px rgba(0, 0, 0, 0.1),
                 0 -4px 8px rgba(0, 0, 0, 0.1);
@@ -56,7 +56,10 @@
             display: block;
             text-decoration: none;
             position: relative;
-
+            background-color: hsla(0, 0%, 100%, 0.9);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
 
 
             &::before {
@@ -69,8 +72,13 @@
                 position: absolute;
                 top: 9px;
                 right: 10px;
-                
             }
+
+            &.dark::before,
+            &.dark::after {
+                filter: brightness(5);
+            }
+
 
         }
 
@@ -81,7 +89,7 @@
                 content: url(../../Images/contactSection/github.svg);
             }
 
-            &::after{
+            &::after {
                 content: url(../../Images/contactSection/door.svg)
             }
 
@@ -93,7 +101,8 @@
             &::before {
                 content: url(../../Images/contactSection/email.svg);
             }
-            &::after{
+
+            &::after {
                 content: url(../../Images/contactSection/duplicate.svg)
             }
         }
@@ -105,7 +114,8 @@
                 content: url(../../Images/contactSection/phone.svg);
 
             }
-            &::after{
+
+            &::after {
                 content: url(../../Images/contactSection/duplicate.svg);
             }
         }
@@ -113,6 +123,121 @@
 
         form {
             grid-area: form;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-row-gap: 10px;
+            border: 2px dashed $main_color_darkMode;
+            border-radius: 10px;
+            padding: 10px 10px;
+            color: rgb(0, 0, 80);
+            background-color: hsla(0, 0%, 100%, 0.3);
+
+            &.dark {
+                background-color: $main_contact_background;
+                color: white;
+                border-color: white;
+            }
+
+            h1 {
+                margin: 3px auto;
+                grid-column: 1/-1;
+                font-family: monospace;
+                font-size: 6vh;
+            }
+
+            input,
+            textarea {
+                border: 2px solid darkblue;
+                border-radius: 10px;
+                padding: 0 20px;
+                font-size: larger;
+                height: 40px;
+                width: 100%;
+            }
+
+            textarea {
+                resize: none;
+                padding: 10px 20px;
+                height: 30vh;
+                grid-column: 1/ -1;
+            }
+
+            button {
+                grid-column: 1/ -1;
+                font-size: xx-large;
+                font-weight: 900;
+                background-color: white;
+                border: darkblue solid 3px;
+                border-radius: 50px;
+                color: darkblue;
+                cursor: pointer;
+                margin: 10px 0px;
+                transition: all 0.2s ease-out;
+
+                &:hover {
+                    background-color: darkblue;
+                    color: white;
+                }
+
+                &.dark {
+                    border-color: white;
+                    background-color: $main_contact_background;
+                    color: white;
+
+                    &:hover {
+                        background-color: white;
+                        color: hsl(240, 100%, 10%);
+                    }
+                }
+            }
+
+
+
+            label:first-of-type {
+                margin-right: 10px;
+            }
+
+            label {
+                position: relative;
+            }
+
+            label::before {
+                position: absolute;
+                font-size: larger;
+                color: rgba(0, 0, 0, 0.5);
+                top: 9px;
+                left: 17px;
+                background-color: white;
+                padding: 0px 3px;
+                transition: all 0.3s ease;
+                border-radius: 10px;
+            }
+
+            label:focus-within::before,
+            label.active::before {
+                transform: translateY(-16px);
+                font-size: small;
+                border-radius: 20px;
+            }
+
+            label[for=name]::before {
+                content: "Name";
+            }
+
+            label[for=email]::before {
+                content: "Email";
+            }
+
+
+            label.dark:focus-within::before,
+            label.dark.active::before {
+                background: none;
+                color: white;
+                transform: translateY(-24px);
+                //mix-blend-mode: ;
+
+            }
         }
     }
 
@@ -121,4 +246,34 @@
         height: 98vh;
         margin: auto;
     }
+}
+
+@media screen and (max-width: 1024px) {
+    #contactSectionWrapper {
+        height: $main_section_responsive_height;
+
+        #contactInfoContainer {
+            display: block;
+            width: 90vw;
+
+            .contactInfo {
+                margin-bottom: 3px;
+                overflow: hidden;
+                padding-right: 50px;
+
+                &::before {
+                    position: relative;
+                    top: 5px;
+                    margin-right: 5px;
+                }
+
+                &::after {
+                    position: absolute;
+                    top: 9px;
+                    right: 5px;
+                }
+            }
+        }
+    }
+
 }

@@ -12,19 +12,26 @@ $button_transition_time: 0.1s;
 
 $main_transition_time: 0.5s;
 
+$main_contact_background:hsla(0, 0%, 20%, 0.7);
+
 @mixin button () {
     display: block;
     color: $main_color_darkMode;
-    background-color: $main_color_lightMode;
+    background-color: white;
     border: 2px dashed $main_color_darkMode;
-    //text-align: center;
     border-radius: 10px;
     cursor: pointer;
     transition: all $button_transition_time ease-out;
 
+    
     &:hover {
         background: $main_color_lightMode;
-        background-color: white;
         text-shadow: 0.05em 0.05em 0.05em hsl(0, 0%, 70%);
+    }
+
+    &.dark{
+        color:white;
+        border-color:white;
+        background-color:  $main_contact_background;
     }
 }

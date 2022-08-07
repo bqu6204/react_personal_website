@@ -6,10 +6,6 @@
   font-family: 'Anton',  'Inter', sans-serif;
 }
 
-* h1 {
-  font-family: 'Martel', serif;
-}
-
 #root {
   z-index: -1;
 }

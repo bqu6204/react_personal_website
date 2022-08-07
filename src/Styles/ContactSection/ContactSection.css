@@ -13,6 +13,7 @@
   height: 100vh;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
+  overflow: hidden;
 }
 
 #contactSectionWrapper.dark {
@@ -26,7 +27,7 @@
   top: 5vh;
   right: 5vw;
   z-index: 1;
-  background-color: #f2f2f2;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   padding: 10px;
   width: 800px;
@@ -37,12 +38,14 @@
       grid-template-columns: 50% 50%;
   grid-row-gap: 10px;
   grid-column-gap: 3px;
+  grid-auto-rows: minmax(-webkit-min-content, -webkit-max-content);
+  grid-auto-rows: minmax(min-content, max-content);
   -webkit-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
           box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.2), inset 0 -4px 4px rgba(255, 255, 255, 0.2);
 }
 
 #contactSectionWrapper #contactInfoContainer.dark {
-  background: #333333;
+  background: rgba(51, 51, 51, 0.7);
   -webkit-box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1);
           box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +53,7 @@
 #contactSectionWrapper #contactInfoContainer .contactInfo {
   display: block;
   color: #333333;
-  background-color: #f2f2f2;
+  background-color: white;
   border: 2px dashed #333333;
   border-radius: 10px;
   cursor: pointer;
@@ -62,12 +65,21 @@
   display: block;
   text-decoration: none;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #contactSectionWrapper #contactInfoContainer .contactInfo:hover {
   background: #f2f2f2;
-  background-color: white;
   text-shadow: 0.05em 0.05em 0.05em #b3b3b3;
+}
+
+#contactSectionWrapper #contactInfoContainer .contactInfo.dark {
+  color: white;
+  border-color: white;
+  background-color: rgba(51, 51, 51, 0.7);
 }
 
 #contactSectionWrapper #contactInfoContainer .contactInfo::before {
@@ -80,6 +92,11 @@
   position: absolute;
   top: 9px;
   right: 10px;
+}
+
+#contactSectionWrapper #contactInfoContainer .contactInfo.dark::before, #contactSectionWrapper #contactInfoContainer .contactInfo.dark::after {
+  -webkit-filter: brightness(5);
+          filter: brightness(5);
 }
 
 #contactSectionWrapper #contactInfoContainer #contactInfoGithub {
@@ -130,11 +147,152 @@
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: form;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  grid-row-gap: 10px;
+  border: 2px dashed #333333;
+  border-radius: 10px;
+  padding: 10px 10px;
+  color: #000050;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#contactSectionWrapper #contactInfoContainer form.dark {
+  background-color: rgba(51, 51, 51, 0.7);
+  color: white;
+  border-color: white;
+}
+
+#contactSectionWrapper #contactInfoContainer form h1 {
+  margin: 3px auto;
+  grid-column: 1/-1;
+  font-family: monospace;
+  font-size: 6vh;
+}
+
+#contactSectionWrapper #contactInfoContainer form input,
+#contactSectionWrapper #contactInfoContainer form textarea {
+  border: 2px solid darkblue;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: larger;
+  height: 40px;
+  width: 100%;
+}
+
+#contactSectionWrapper #contactInfoContainer form textarea {
+  resize: none;
+  padding: 10px 20px;
+  height: 30vh;
+  grid-column: 1/ -1;
+}
+
+#contactSectionWrapper #contactInfoContainer form button {
+  grid-column: 1/ -1;
+  font-size: xx-large;
+  font-weight: 900;
+  background-color: white;
+  border: darkblue solid 3px;
+  border-radius: 50px;
+  color: darkblue;
+  cursor: pointer;
+  margin: 10px 0px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+#contactSectionWrapper #contactInfoContainer form button:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+#contactSectionWrapper #contactInfoContainer form button.dark {
+  border-color: white;
+  background-color: rgba(51, 51, 51, 0.7);
+  color: white;
+}
+
+#contactSectionWrapper #contactInfoContainer form button.dark:hover {
+  background-color: white;
+  color: #000033;
+}
+
+#contactSectionWrapper #contactInfoContainer form label:first-of-type {
+  margin-right: 10px;
+}
+
+#contactSectionWrapper #contactInfoContainer form label {
+  position: relative;
+}
+
+#contactSectionWrapper #contactInfoContainer form label::before {
+  position: absolute;
+  font-size: larger;
+  color: rgba(0, 0, 0, 0.5);
+  top: 9px;
+  left: 17px;
+  background-color: white;
+  padding: 0px 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+#contactSectionWrapper #contactInfoContainer form label:focus-within::before,
+#contactSectionWrapper #contactInfoContainer form label.active::before {
+  -webkit-transform: translateY(-16px);
+          transform: translateY(-16px);
+  font-size: small;
+  border-radius: 20px;
+}
+
+#contactSectionWrapper #contactInfoContainer form label[for=name]::before {
+  content: "Name";
+}
+
+#contactSectionWrapper #contactInfoContainer form label[for=email]::before {
+  content: "Email";
+}
+
+#contactSectionWrapper #contactInfoContainer form label.dark:focus-within::before,
+#contactSectionWrapper #contactInfoContainer form label.dark.active::before {
+  background: none;
+  color: white;
+  -webkit-transform: translateY(-24px);
+          transform: translateY(-24px);
 }
 
 #contactSectionWrapper .map-container {
   width: 98%;
   height: 98vh;
   margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  #contactSectionWrapper {
+    height: 92vh;
+  }
+  #contactSectionWrapper #contactInfoContainer {
+    display: block;
+    width: 90vw;
+  }
+  #contactSectionWrapper #contactInfoContainer .contactInfo {
+    margin-bottom: 3px;
+    overflow: hidden;
+    padding-right: 50px;
+  }
+  #contactSectionWrapper #contactInfoContainer .contactInfo::before {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+  }
+  #contactSectionWrapper #contactInfoContainer .contactInfo::after {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+  }
 }
 /*# sourceMappingURL=ContactSection.css.map */

@@ -44,19 +44,24 @@ export default function ContactSection(props) {
     }
 
     function isValidEmail(email) {
+        // eslint-disable-next-line
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         return regex.test(email);
     }
 
     function handleSubmit(event) {
         event.preventDefault();
-        if ( !isValidEmail(data.email) ) return alert('Email NOT valid!');
+        if (!isValidEmail(data.email)) return alert('Email NOT valid!');
 
-        if (data.name && data.email && data.text){
-            axios.post(process.env.SENDGRID_URL, data)
+        if (data.name && data.email && data.text) {
+            axios.post('https://esong-react.herokuapp.com/', data)
                 .then((response) => {
-                    console.log(response);
-                    alert(response.data.msg)
+                    setData({
+                        name: '',
+                        email: '',
+                        text: '',
+                    });
+                    response.request.status === 200 && alert('Email sent!')
                 });
         } else {
             alert('Form uncompleted!');
@@ -66,17 +71,45 @@ export default function ContactSection(props) {
     return (
         <div id="contactSectionWrapper" className={props.darkScene === true ? 'dark' : ''}>
             <div id="contactInfoContainer" className={props.darkScene === true ? 'dark' : ''}>
-                <div id="contactInfoPhone" className="contactInfo" onClick={copy}>
+                <div
+                    id="contactInfoPhone"
+                    className={`${props.darkScene === true ? 'dark' : ''} contactInfo`}
+                    onClick={copy}>
                     0963251211</div>
-                <div id="contactInfoEmail" className="contactInfo" onClick={copy} >bqu6204@gmail.com</div>
-                <a id="contactInfoGithub" className="contactInfo" href="https://github.com/bqu6204/react_personal_website" target="_blank" rel="noopener noreferrer" >
+                <div id="contactInfoEmail" className={`${props.darkScene === true ? 'dark' : ''} contactInfo`} onClick={copy} >bqu6204@gmail.com</div>
+                <a id="contactInfoGithub" className={`${props.darkScene === true ? 'dark' : ''} contactInfo`} href="https://github.com/bqu6204/react_personal_website" target="_blank" rel="noopener noreferrer" >
                     https://github.com/bqu6204/react_personal_website
                 </a>
-                <form>
-                    <input onChange={handleInputChange} name="name" type="text" placeholder="Name"></input>
-                    <input onChange={handleInputChange} name="email" type="email" placeholder="Email"></input>
-                    <textarea onChange={handleInputChange} name="text" placeholder="Text..."></textarea>
-                    <button onClick={handleSubmit}>submit</button>
+                <form className={props.darkScene === true ? 'dark' : ''}>
+                    <h1 className={props.darkScene === true ? 'dark' : ''}>FORM</h1>
+                    <label
+                        htmlFor="name"
+                        className={`${props.darkScene === true ? 'dark' : ''} ${data.name ? 'active' : ''}`}>
+                        <input
+                            onChange={handleInputChange}
+                            name="name" 
+                            type="text" 
+                            value={data.name}
+                            className={props.darkScene === true ? 'dark' : ''}>
+                        </input>
+                    </label>
+                    <label htmlFor="email" className={`${props.darkScene === true ? 'dark' : ''} ${data.email ? 'active' : ''}`}>
+                        <input
+                            onChange={handleInputChange}
+                            name="email"
+                            type="email"
+                            value={data.email}
+                            className={props.darkScene === true ? 'dark' : ''}>
+                        </input>
+                    </label>
+                    <textarea
+                        onChange={handleInputChange}
+                        name="text"
+                        value={data.text}
+                        placeholder="Emails are sent by a simple php server with SendGrid add on running on Heroku."
+                        className={props.darkScene === true ? 'dark' : ''}>
+                    </textarea>
+                    <button onClick={handleSubmit} className={props.darkScene === true ? 'dark' : ''}>submit</button>
                 </form>
             </div>
             <GoogleMap

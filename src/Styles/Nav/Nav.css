@@ -13,6 +13,10 @@ nav {
   z-index: 3;
 }
 
+nav h1 {
+  font-family: 'Martel', serif;
+}
+
 nav.dark {
   background-color: #333333;
   color: #f2f2f2;

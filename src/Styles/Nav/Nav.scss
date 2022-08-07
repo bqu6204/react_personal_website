@@ -25,6 +25,10 @@ nav {
     transition: all 0.5s ease-out;
     z-index: 3;
 
+    h1 {
+        font-family: 'Martel', serif;
+    }
+
     &.dark {
         background-color: $nav--background--dark;
         color: $nav--background--light;
