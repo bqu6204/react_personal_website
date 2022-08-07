@@ -53,7 +53,7 @@ export default function ContactSection(props) {
         if ( !isValidEmail(data.email) ) return alert('Email NOT valid!');
 
         if (data.name && data.email && data.text){
-            axios.post('https://esong-react.herokuapp.com/', data)
+            axios.post(process.env.SENDGRID_URL, data)
                 .then((response) => {
                     console.log(response);
                     alert(response.data.msg)
