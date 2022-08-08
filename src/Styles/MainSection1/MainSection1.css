@@ -118,7 +118,7 @@
   }
   .mainSection1Wrapper #mainSection1TextImageContainer #mainSection1Text h1 {
     width: 80%;
-    font-size: 18vw;
+    font-size: 10vh;
     text-align: left;
   }
 }
