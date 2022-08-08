@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/bootstrap-5.2.0-origin
+
 # testing
 /coverage
 
